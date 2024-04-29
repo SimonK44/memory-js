@@ -1,40 +1,57 @@
 body {
-    background: linear-gradient(to bottom right, green, blue) no-repeat;
+    background: linear-gradient(to bottom right,#00467f,#a5cc82) no-repeat;
     height: 1000px;
-};
+}
 
 h1 {
     color:white;
+    text-align: center;
 }
 
 .navbar {
-    color: white;
-    background-color: black;
-};
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+    height: 4%;
+    border-radius: 20px;
+    margin: auto;
+}
 
-.navbar a a:hover {
-    background-color: rgba(red, green, blue, alpha);
+.navbar a:hover {
     color: aqua;
+}
+
+form .regles .navbar {
+    background-color: black;
+    color: whitesmoke;
 }
 
 form {
     display: flex;
-    border-radius: 20px;
-    justify-content: center;
-    background-color: black;
-    color: white;
+    border-radius: 30px;
+    justify-content: space-evenly; 
+    align-content: center;
 }
 
 .regles {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    background-color: black;
-    border-radius: 2%;
+    background-color: #b29f94;
+    border-radius: 2%;    
+    width: 50%;
     color: white;
+    margin: 5%;
 }
 
-.regles img {     
+.regles h2 ul p {    
+    justify-content: center;
+    text-align: center;
+}
+
+.regles img {    
+    align-content: center; 
     margin: 2%;
     width: 30%;
-};
+}
