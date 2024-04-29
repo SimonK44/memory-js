@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="js/app.js" defer></script>
+</head>
+
+<body>
+    <h1>ENI - <strong>MEMORY</strong> - Profil utilisateur</h1>
+
+    <nav class="navbar">
+        <a href="index.html">Accueil</a>
+        <a href="inscription.html">S'inscrire</a>
+        <a href="connection.html">Se connecter</a>
+        <a href="profil.html">Profil</a>
+        <a href="jeu.html">Jouer</a>
+    </nav>
+
+    <fieldset>
+        <legend>Profil</legend>
+        <a href="ressources/question.svg"></a>
+        <form action="" id="formProfil">
+            <label for="name">Nom d'utilisateur</label>
+            <input type="text" id="name">
+
+            <label for="mail">Votre email</label>
+            <input type="mail" name="mail" id="mail">
+
+            <label for="memoryChoice">Choix du Memory</label>
+            <select name="memoryChoice" id="memoryChoice">
+                <option value="animals">Animaux animés</option>
+                <option value="dino">Dinosaures</option>
+                <option value="fruits">Fruits</option>
+            </select>
+
+            <a href=""></a>
+
+            <label for="sizeChoice">Taille du Memory</label>
+            <select name="sizeChoice" id="sizeChoice">   
+                <option value="small">4 * 3</option>
+                <option value="medium">5 * 4</option>
+            </select>            
+                
+            <button type="submit" class="btn">Enregistrez options</button>
+        </form>
+    </fieldset>
+
+
+
+</body>
+
+</html>

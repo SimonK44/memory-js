@@ -1,0 +1,40 @@
+body {
+    background: linear-gradient(to bottom right, green, blue) no-repeat;
+    height: 1000px;
+};
+
+h1 {
+    color:white;
+}
+
+.navbar {
+    color: white;
+    background-color: black;
+};
+
+.navbar a a:hover {
+    background-color: rgba(red, green, blue, alpha);
+    color: aqua;
+}
+
+form {
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+.regles {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 2%;
+    color: white;
+}
+
+.regles img {     
+    margin: 2%;
+    width: 30%;
+};
