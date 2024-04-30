@@ -20,23 +20,22 @@
         <a href="jeu.html">Jouer</a>
     </nav>
     
-    <fieldset>
-        <legend>Connectez-vous.</legend>
-        <form action="" id="formConnection">   
-            <label for="mail">Entrez votre email</label>
-            <input type="mail" name="mail" id="mail" placeholder="Votre mail : John@doe.fr ">
-            <div class="message erreur" id="erreur-mail"></div>
-    
-            <label for="password" id="password">Mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe">
-            <div class="message erreur" id="erreur-password"></div>    
-    
+    <form action="" method="post" id="formConnection">   
+        <h2>Connectez-vous</h2>
+        
+        <label for="mail">Entrez votre email</label>
+        <input type="mail" name="mail" id="mail" placeholder="Votre mail : John@doe.fr ">
+        <div class="message erreur" id="erreur-mail"></div>        
+
+        <label for="password" id="password">Mot de passe</label>
+        <input type="password" name="password" id="password" placeholder="Votre mot de passe">
+        <div class="message erreur" id="erreur-password"></div>        
+        
+        <div class="btnForm">
             <button type="submit" class="btn">Se connecter</button>
             <button type="reset" class="btn">Annuler</button>
-        </form>
-    </fieldset>
-
-
+        </div>
+    </form>
 
 </body>
 

@@ -19,37 +19,35 @@
         <a href="profil.html">Profil</a>
         <a href="jeu.html">Jouer</a>
     </nav>
+    
+    <form action="" method="post" id="formProfil">
+        <img src="ressources/question.svg" alt="Point d'interrogation">
+        <h2>Profil</h2>
 
-    <fieldset>
-        <legend>Profil</legend>
-        <a href="ressources/question.svg"></a>
-        <form action="" id="formProfil">
-            <label for="name">Nom d'utilisateur</label>
-            <input type="text" id="name">
+        <label for="name">Nom d'utilisateur</label>
+        <input type="text" id="name">
 
-            <label for="mail">Votre email</label>
-            <input type="mail" name="mail" id="mail">
+        <label for="mail">Votre email</label>
+        <input type="mail" name="mail" id="mail">
 
-            <label for="memoryChoice">Choix du Memory</label>
-            <select name="memoryChoice" id="memoryChoice">
-                <option value="animals">Animaux animés</option>
-                <option value="dino">Dinosaures</option>
-                <option value="fruits">Fruits</option>
-            </select>
+        <label for="memoryChoice">Choix du Memory</label>
+        <select name="memoryChoice" id="memoryChoice">
+            <option value="animals">Animaux animés</option>
+            <option value="dino">Dinosaures</option>
+            <option value="fruits">Fruits</option>
+        </select>
 
-            <a href=""></a>
-
-            <label for="sizeChoice">Taille du Memory</label>
-            <select name="sizeChoice" id="sizeChoice">   
-                <option value="small">4 * 3</option>
-                <option value="medium">5 * 4</option>
-            </select>            
-                
+        <label for="sizeChoice">Taille du Memory</label>
+        <select name="sizeChoice" id="sizeChoice">   
+            <option value="small">4 * 3</option>
+            <option value="medium">5 * 4</option>
+        </select>            
+            
+        <div class="btnForm">
             <button type="submit" class="btn">Enregistrez options</button>
-        </form>
-    </fieldset>
-
-
+        </div>
+        
+    </form> 
 
 </body>
 
