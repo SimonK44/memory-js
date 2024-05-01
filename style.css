@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(to bottom right,#00467f,#a5cc82) no-repeat;
-    height: 1000px;
+    height: 1100px;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
     margin-bottom: 2%;
 }
 
-form, .regles, .navbar, div.jeu {
+form, .regles, .navbar, .memory-game {
     background-color: rgba(100,100,100,0.6);
     color: whitesmoke;
 }
@@ -117,57 +117,52 @@ form img {
     width: 30%;
 }
 
-div.jeu{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 4%;    
-    width: 50%;
+div.introJeu {
+    color: whitesmoke;
+    text-align: center;
+    padding: 2%;    
+}
+
+.memory-game {  
+    border-radius: 4%;
+    width: 60%;
+    height: 60%;
     padding: 2%;
     margin-top: 2%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 3px;
+    grid-row-gap: 3px;
+    perspective: 1000px;
 }
 
-div.introJeu {
-    text-align: center;
-    padding: 2%;    
+.memory-card {
+    width: 90%;
+    height: 90%;
+    margin: 0.5em;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
 }
 
 .memory-card.flip {
     transform: rotateY(180deg);
 }
 
-.memory-game {
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    perspective: 1000px;
-}
-
-.memory-card {
-    width: calc(25% - 10px);
-    height: calc(33.333% - 10px);
-    margin: 5px;
-    position: relative;
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform .5s;
-}
-
 .memory-card:active {
     transform: scale(0.97);
-    transition: transform .2s;
+    transition: transform 0.2s;
 }
 
 .front-face, 
 .back-face {
     width: 100%;
     height: 100%;
-    padding: 20px;
     position: absolute;
     border-radius: 5px;
     backface-visibility: hidden;
