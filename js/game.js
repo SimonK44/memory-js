@@ -58,7 +58,6 @@ function resetBoard () {
     count+=1;  
     let $displayCount = document.querySelector(".nbCoups");
     $displayCount.innerHTML = `Nombre de coups : ${count}`;
-    console.log(count);  
 }
 
 (function shuffle() {
@@ -70,7 +69,7 @@ function resetBoard () {
 
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Space') {
-      location.reload();
+    location.reload();
     }
 });
 
