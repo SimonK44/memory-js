@@ -1,8 +1,10 @@
+import { saveUser } from "./storage.js"
+
 const $contactForm = document.getElementById("formInscription");
 
 const user = {};
 const errors = [];
-const KEY_LOCALSTORAGE = "users";
+const KEY_LS_USERS = "users";
 
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
@@ -57,12 +59,10 @@ $contactForm.addEventListener("submit", (event) => {
             const $errorField = document.getElementById(`erreur-${error[0]}`);
             $errorField.innerHTML = error[1];
         });
-    } else {
-        console.log("Save");
-        
-        saveUser(KEY_LOCALSTORAGE, user);
+    } else {        
+        saveUser(KEY_LS_USERS, user);
         const $msgSuccess = document.getElementById("message-success");
-        $msgSuccess.innerHTML = "User register successfully";
+        $msgSuccess.innerHTML = "Inscription enregistrée !";
 
         setTimeout(() => {
             $msgSuccess.innerHTML = "";

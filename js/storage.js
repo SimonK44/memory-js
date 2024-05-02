@@ -27,4 +27,15 @@ function getUsers(key) {
     // return JSON.parse(localStorage.getItem(key)) || []
 }
 
-export { saveUser, getUsers }
+function checkUser(email, password) {
+    const usersData = JSON.parse(localStorage.getItem('userData'));
+
+    // Vérifier si des données sont stockées et si l'email et le mot de passe correspondent
+    if (usersData && storedData.email === email && storedData.password === password) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export { saveUser, getUsers, checkUser };

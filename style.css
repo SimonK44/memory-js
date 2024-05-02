@@ -6,9 +6,9 @@ body {
 h1 {
     color:whitesmoke;
     text-align: center;
-    font-family:'Franklin Gothic Medium', sans-serif;
-    font-size: 40px;
-    margin-bottom: 2%;
+    font-family: Georgia, sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 4%;
 }
 
 form, .regles, .navbar, .memory-game {
@@ -69,6 +69,13 @@ form div[id^="erreur-"] {
     color: red;
     text-align: center;
     font-size: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+#message-success {
+    color:#00cc66;
+    text-align: center;
+    margin-top: auto;
 }
 
 form img {
@@ -80,12 +87,12 @@ form img {
 
 .btn {
     background-color: silver;
-    width: 180px;
+    width: 45%;
+    height: 50px;
     color: white;
     font-size: 1.1em;
     border: 1px solid silver;
-    border-radius: 7px;
-    height: 50px;
+    border-radius: 7px;    
 }
 
 .btnForm {
@@ -109,13 +116,21 @@ form img {
 
 .regles img {    
     margin: auto;
-    width: 30%;
+    width: 60%;
 }
 
 div.introJeu {
     color: whitesmoke;
     text-align: center;
     padding: 2%;    
+}
+
+.nbCoups {
+    background-color: rgba(100,100,100,0.6);
+    width: 30%;
+    height: 10%;
+    border-radius: 20px;
+    margin: auto;
 }
 
 .memory-game {  
