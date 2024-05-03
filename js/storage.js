@@ -9,4 +9,17 @@ function saveUser(key, user) {
     localStorage.setItem(key, JSON.stringify(users))
 }
 
+/**
+ * Get Data from Localstorage
+ * @param {*} key 
+ * @returns 
+ */
+function getUsers(key) {
+    const datasFromLocalstorage = localStorage.getItem(key);
+
+    const convertUsers = JSON.parse(datasFromLocalstorage) || [];
+
+    return convertUsers;
+};
+
 export { saveUser };
