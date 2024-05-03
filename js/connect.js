@@ -1,7 +1,6 @@
-const $connectForm = document.getElementById("formConnection");
+const $connectForm = document.getElementById("formConnexion");
 
 const usersData = JSON.parse(localStorage.getItem('users'));
-console.log(usersData);
 
 $connectForm.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -30,9 +29,12 @@ $connectForm.addEventListener("submit", function(event) {
         });
     }
 
+    const $statusConnect = document.getElementById("message-success");  
+    const $errConnect = document.getElementById("erreur-connexion");   
+
     if (userFound) {
-        console.log('Connexion réussie !');
+        $statusConnect.innerHTML = "Connexion réussie !";
     } else {
-        console.log('Identifiants incorrects. Veuillez réessayer.');
+        $errConnect.innerHTML = "Identifiants incorrects. Veuillez réessayer.";
     }
 });    

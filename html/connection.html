@@ -20,21 +20,23 @@
         <a href="jeu.html">Jouer</a>
     </nav>
     
-    <form action="" method="post" id="formConnection">   
+    <form action="" method="post" id="formConnexion">   
         <h2>Connectez-vous</h2>
         
         <label for="mailConnect">Entrez votre email</label>
-        <input type="mail" name="mailConnect" id="mailConnect" placeholder=" Votre mail : John@doe.fr ">
-        <div class="message erreur" id="erreur-mail"></div>        
+        <input type="mail" name="mailConnect" id="mailConnect" placeholder=" Votre mail : John@doe.fr ">             
 
         <label for="passwordConnect">Mot de passe</label>
-        <input type="password" name="passwordConnect" id="passwordConnect" placeholder=" Votre mot de passe">
-        <div class="message erreur" id="erreur-password"></div>        
+        <input type="password" name="passwordConnect" id="passwordConnect" placeholder=" Votre mot de passe"> 
+        
+        <div class="message connection" id="message-success"></div>
+        <div class="message erreur" id="erreur-connexion"></div>
         
         <div class="btnForm">
             <button type="submit" class="btn">Se connecter</button>
             <button type="reset" class="btn">Annuler</button>
-        </div>
+        </div>        
+        
     </form>
 
 </body>
