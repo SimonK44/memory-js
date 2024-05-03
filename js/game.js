@@ -5,6 +5,7 @@ let lockBoard = false;
 let firstCard;
 let secondCard;
 let count = 0;
+let winCount = 0;
 
 function flipCard() {
     if (lockBoard){
@@ -31,6 +32,11 @@ function flipCard() {
 function checkForMatch () {
     if (firstCard.dataset.dino === secondCard.dataset.dino) {
         disableCard();
+        winCount+=1;
+        if (winCount == 6) {
+            let $displayWinCount = document.querySelector(".nbCoups");
+            $displayWinCount.innerHTML = `Vous avez gagné en ${count} coups !`;
+        }
         return;        
     }
 
