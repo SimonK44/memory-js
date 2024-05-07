@@ -78,7 +78,8 @@ $contactForm.addEventListener("submit", (event) => {
 
         setTimeout(() => {
             $msgSuccess.innerHTML = "";
-        }, 5000);
+            window.location.href = "connection.html";
+        }, 4000);        
     }
 
 });

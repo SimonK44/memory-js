@@ -119,6 +119,13 @@ form img {
     width: 60%;
 }
 
+#memoryPic {
+    margin-top: 7%;
+    margin-bottom: 7%;
+    width: 60%;
+    height: 20%;
+}
+
 div.introJeu {
     color: whitesmoke;
     text-align: center;

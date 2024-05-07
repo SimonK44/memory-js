@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
     <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../js/profil.js" defer></script>
 </head>
 
 <body>
@@ -13,28 +14,31 @@
 
     <nav class="navbar">
         <a href="index.html">Accueil</a>
-        <a href="inscription.html">S'inscrire</a>
-        <a href="connection.html">Se connecter</a>
+        <a href="inscription.html" id="insc-link">S'inscrire</a>
+        <a href="connection.html" id="connect-link">Se connecter</a>
         <a href="profil.html">Profil</a>
         <a href="jeu.html">Jouer</a>
+        <a href="#" id="logout-link">Déconnexion</a> 
     </nav>
     
-    <form action="" method="post" id="formProfil">
+    <form action="" id="formProfil">
         <img src="../ressources/question.svg" alt="Point d'interrogation">
         <h2>Profil</h2>
 
-        <label for="name">Nom d'utilisateur</label>
-        <input type="text" id="name">
+        <label for="name-profil">Nom d'utilisateur</label>
+        <input type="text" id="name-profil">
 
-        <label for="mail">Votre email</label>
-        <input type="mail" name="mail" id="mail">
+        <label for="mail-profil">Votre email</label>
+        <input type="mail" name="mail" id="mail-profil">
 
         <label for="memoryChoice">Choix du Memory</label>
         <select name="memoryChoice" id="memoryChoice">
             <option value="animals">Animaux animés</option>
-            <option value="dino">Dinosaures</option>
+            <option value="../ressources/dinosaures/memory_detail_dinosaures.png">Dinosaures</option>
             <option value="fruits">Fruits</option>
+            <option value="vide" selected></option>
         </select>
+        <img src="" alt="" id="memoryPic">
 
         <label for="sizeChoice">Taille du Memory</label>
         <select name="sizeChoice" id="sizeChoice">   

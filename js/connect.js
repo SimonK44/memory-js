@@ -33,10 +33,16 @@ $connectForm.addEventListener("submit", function(event) {
     }
 
     const $statusConnect = document.getElementById("message-success");  
-    const $errConnect = document.getElementById("error-connexion");   
+    const $errConnect = document.getElementById("erreur-connexion");   
 
     if (userFound) {
+        // Enregistrement des infos utilisateur
+        const currentUserData = usersData.find(user => user.email === emailEntered);
+        localStorage.setItem('currentUser', JSON.stringify(currentUserData));
         $statusConnect.innerHTML = "Connexion réussie !";
+        setTimeout(() => {            
+            window.location.href = "profil.html";            
+        }, 3000);        
     } else {
         $errConnect.innerHTML = "Identifiants incorrects. Veuillez réessayer.";
     }
