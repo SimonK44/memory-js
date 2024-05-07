@@ -1,5 +1,5 @@
 /**
- * Save Localstorage
+ * Enregistrement dans le LS
  * @param {string} key 
  * @param {object} user 
  */
@@ -10,7 +10,7 @@ function saveUser(key, user) {
 }
 
 /**
- * Get Data from Localstorage
+ * Récupération des éléments du LS
  * @param {*} key 
  * @returns 
  */
@@ -22,4 +22,4 @@ function getUsers(key) {
     return convertUsers;
 };
 
-export { saveUser };
+export { saveUser, getUsers };

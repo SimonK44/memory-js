@@ -1,4 +1,4 @@
-import { saveUser } from "./storage.js"
+import { saveUser, getUsers } from "./storage.js"
 
 const $contactForm = document.getElementById("formInscription");
 
@@ -6,20 +6,26 @@ const user = {};
 const errors = [];
 const KEY_LS_USERS = "users";
 
+// getUsers(KEY_LS_USERS);
+
+// Récupération de l'input password pour évaluation
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
     passwordInput.addEventListener('input', passwordEvaluation);
     });
 
+// Analyse des éléments du fomulaire lors du submit
 $contactForm.addEventListener("submit", (event) => {
     errors.length = 0;
     event.preventDefault();
 
+    // Mise à 0 des messages d'erreurs
     const $errorInputs = document.querySelectorAll("[id^=erreur-]");
     $errorInputs.forEach((error) => (error.innerHTML = ""));
 
     const $inputs = event.currentTarget.querySelectorAll("input");
 
+    // Contrôle de chaque champs avec les fonctions associées et renvoi d'un message d'erreur
     $inputs.forEach((input) => {         
         switch (input.id) {
             case "name":
@@ -32,6 +38,7 @@ $contactForm.addEventListener("submit", (event) => {
             case "mail":
                 if (!validateEmail(input.value)) {
                     errors.push([input.id, "L'email n'est pas correct"]);
+                    // test mail déjà inscrit
                 } else {
                     user.email = input.value;
                 }
@@ -54,12 +61,14 @@ $contactForm.addEventListener("submit", (event) => {
         }
     });
 
+    // Pour chaque erreur, un message affiché sous l'input
     if (errors.length > 0) {        
         errors.map((error) => {        
             const $errorField = document.getElementById(`erreur-${error[0]}`);
             $errorField.innerHTML = error[1];
         });
     } else {        
+        // Sinon enregistrement de l'objet user dans le LS
         saveUser(KEY_LS_USERS, user);
         const $msgSuccess = document.getElementById("message-success");
         $msgSuccess.innerHTML = "Inscription enregistrée !";
@@ -71,17 +80,21 @@ $contactForm.addEventListener("submit", (event) => {
 
 });
 
+// Regex nom, retourne true/false
 function validateName(name) {
     const namePattern = /^[a-zA-Z0-9._%+-]{3,}$/;
     return namePattern.test(name);
 };
 
+// Regex mail, retourne true/false
 function validateEmail(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$/;
     return emailPattern.test(email);
 };
 
+// Regex mdp
 function validatePassword(password) {
+    // Retourne faible si nul ou - de 6 caractères
     if (!password || password.length < 6) {
             return "weak";
         }
@@ -89,6 +102,7 @@ function validatePassword(password) {
     const chiffreOuSymboleRegex = /[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
     const contientChiffreOuSymbole = chiffreOuSymboleRegex.test(password);
     
+    // Retourne strong si + de 9 caractères, au moins un symbole, un chiffre et des lettres sinon medium 
     if (password.length >= 6 && contientChiffreOuSymbole) {
         const chiffreRegex = /[0-9]/;
         const contientChiffre = chiffreRegex.test(password);
@@ -105,6 +119,7 @@ function validatePassword(password) {
     return "weak";
 };
 
+// Evaluation du mot de passe pour alimenter la jauge dans le formulaire
 function passwordEvaluation() {
     const password = document.getElementById('password').value;
     const level = validatePassword(password);
