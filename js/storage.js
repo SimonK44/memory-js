@@ -22,4 +22,28 @@ function getUsers(key) {
     return convertUsers;
 };
 
-export { saveUser, getUsers };
+function checkUserMail(key, mail) {
+    const users = getUsers(key);
+    if (users) {
+        for (const user of users) {
+            if (mail === user.email) {                
+                return true;
+            }            
+        }
+    } 
+    return false;    
+};
+
+function checkUserName(key, name) {
+    const users = getUsers(key);
+    if (users) {
+        for (const user of users) {
+            if (name === user.name) {                
+                return true;
+            }            
+        }
+    }    
+    return false;     
+};
+
+export { saveUser, checkUserName, checkUserMail };

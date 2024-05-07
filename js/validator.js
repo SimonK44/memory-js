@@ -1,4 +1,4 @@
-import { saveUser, getUsers } from "./storage.js"
+import { saveUser, checkUserMail, checkUserName } from "./storage.js"
 
 const $contactForm = document.getElementById("formInscription");
 
@@ -31,14 +31,17 @@ $contactForm.addEventListener("submit", (event) => {
             case "name":
                 if (!validateName(input.value)) {
                     errors.push([input.id, "Choisissez un pseudo contenant au moins 3 caractères"]);
+                } else if (checkUserName(KEY_LS_USERS, input.value)){
+                    errors.push([input.id, "Nom déjà utilisé"]);
                 } else {
                     user.name = input.value;
                 }
                 break;
             case "mail":
                 if (!validateEmail(input.value)) {
-                    errors.push([input.id, "L'email n'est pas correct"]);
-                    // test mail déjà inscrit
+                    errors.push([input.id, "L'email n'est pas correct"]);                    
+                } else if (checkUserMail(KEY_LS_USERS, input.value)){
+                    errors.push([input.id, "Email déjà utilisé"]);  
                 } else {
                     user.email = input.value;
                 }
@@ -82,7 +85,7 @@ $contactForm.addEventListener("submit", (event) => {
 
 // Regex nom, retourne true/false
 function validateName(name) {
-    const namePattern = /^[a-zA-Z0-9._%+-]{3,}$/;
+    const namePattern = /.{3,}/;
     return namePattern.test(name);
 };
 
