@@ -1,4 +1,3 @@
-// Gestion de la deconnexion + affichage page profil
 const $logout = document.getElementById("logout-link");
 const $connectLink = document.getElementById("connect-link");
 const $inscLink = document.getElementById("insc-link");
@@ -16,6 +15,8 @@ if (currentUser) {
     $displayMail.readOnly = true;
     $connectLink.style.display = "none";
     $inscLink.style.display = "none";
+    document.getElementById("size-choice").value = currentUser.sizeChoice;
+    document.getElementById("memory-choice").value = currentUser.memoryChoice;
 } else {
     $logout.style.display = "none";
 };
@@ -27,12 +28,37 @@ $logout.addEventListener("click", function(event) {
     window.location.href = "connection.html";
 });
 
-const $memoryPicture = document.getElementById("memoryPic");
-const $memoryChoice = document.getElementById("memoryChoice");
+// Choix du memory, affichage de l'image correspondante
+const $memoryPicture = document.getElementById("memory-pic");
+const $memoryChoice = document.getElementById("memory-choice");
 $memoryChoice.addEventListener("change", function(event) {
-    $memoryPicture.src = this.value;    
+    $memoryPicture.src = this.value;
 });
 
+// Récupération des données User pour enregistrement des choix
+const usersData = JSON.parse(localStorage.getItem('users'));
 
+const $formProfil = document.getElementById("formProfil");
+$formProfil.addEventListener("submit", function(event) {
+    event.preventDefault();
 
+    const $selectedSize = document.getElementById("size-choice").value;
+    const $selectedMemory = document.getElementById("memory-choice").value;
 
+    if(usersData) {
+        usersData.forEach((user) => {
+            if(currentUser.email === user.email) {              
+            currentUser.sizeChoice = $selectedSize;
+            currentUser.memoryChoice = $selectedMemory;
+            user.sizeChoice = $selectedSize;
+            user.memoryChoice = $selectedMemory;
+    
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            localStorage.setItem('users', JSON.stringify(usersData));  
+            
+            document.getElementById("size-choice").value = currentUser.sizeChoice;
+            document.getElementById("memory-choice").value = currentUser.memoryChoice;
+            }   
+        });
+    };
+});

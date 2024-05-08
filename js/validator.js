@@ -51,6 +51,8 @@ $contactForm.addEventListener("submit", (event) => {
                     errors.push([input.id, "Le mot de passe n'est pas correct"]);
                 } else {
                     user.password = input.value;
+                    user.sizeChoice = "";
+                    user.memoryChoice = "";
                 }
                 break;  
             case "confpassword":

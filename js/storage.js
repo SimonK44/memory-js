@@ -16,7 +16,6 @@ function saveUser(key, user) {
  */
 function getUsers(key) {
     const datasFromLocalstorage = localStorage.getItem(key);
-
     const convertUsers = JSON.parse(datasFromLocalstorage) || [];
 
     return convertUsers;
