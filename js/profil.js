@@ -34,10 +34,12 @@ const $memoryChoice = document.getElementById("memory-choice");
 $memoryChoice.addEventListener("change", function(event) {
     $memoryPicture.src = this.value;
 });
+$memoryPicture.src = $memoryChoice.value;
 
 // Récupération des données User pour enregistrement des choix
 const usersData = JSON.parse(localStorage.getItem('users'));
 
+// Récupération des éléments du formulaire lors du submit
 const $formProfil = document.getElementById("formProfil");
 $formProfil.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -45,6 +47,7 @@ $formProfil.addEventListener("submit", function(event) {
     const $selectedSize = document.getElementById("size-choice").value;
     const $selectedMemory = document.getElementById("memory-choice").value;
 
+    // Enregistrement dans le local storage et affichage sur la page profil
     if(usersData) {
         usersData.forEach((user) => {
             if(currentUser.email === user.email) {              
@@ -58,6 +61,13 @@ $formProfil.addEventListener("submit", function(event) {
             
             document.getElementById("size-choice").value = currentUser.sizeChoice;
             document.getElementById("memory-choice").value = currentUser.memoryChoice;
+
+            // Message de prise en compte
+            const $statusSave = document.getElementById("message-success");      
+            $statusSave.innerHTML = "Modifications prises en compte.";
+            setTimeout(() => {            
+                $statusSave.innerHTML = "";           
+            }, 5000); 
             }   
         });
     };
