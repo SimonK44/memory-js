@@ -7,7 +7,7 @@ function saveUser(key, user) {
     const users = getUsers(key)
     users.push(user)
     localStorage.setItem(key, JSON.stringify(users))
-}
+};
 
 /**
  * Récupération des éléments du LS
@@ -45,4 +45,17 @@ function checkUserName(key, name) {
     return false;     
 };
 
-export { saveUser, checkUserName, checkUserMail };
+function saveGame(key, game) {
+    const games = getGames(key)
+    games.push(game)
+    localStorage.setItem(key, JSON.stringify(games))
+};
+
+function getGames(key) {
+    const datasFromLocalstorage = localStorage.getItem(key);
+    const convertGames = JSON.parse(datasFromLocalstorage) || [];
+
+    return convertGames;
+};
+
+export { saveUser, checkUserName, checkUserMail, saveGame };

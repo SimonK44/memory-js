@@ -1,40 +1,32 @@
-const $logout = document.getElementById("logout-link");
-const $connectLink = document.getElementById("connect-link");
-const $inscLink = document.getElementById("insc-link");
+import { disconnect } from "./disconnect.js";
+
 const $displayName = document.getElementById("name-profil");
 const $displayMail = document.getElementById("mail-profil");
+const $memoryPicture = document.getElementById("memory-pic");
+const $memoryChoice = document.getElementById("memory-choice");
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const $logout = document.getElementById("logout-link");
 
-// Mise à jour de la navbar
+$memoryPicture.src = $memoryChoice.value;
+
 // affichage nom/mail sur la page profil et blocage de la saisie
-if (currentUser) {
-    $logout.style.display = "block";
+if (currentUser) {    
+    disconnect($logout);
     $displayName.value = currentUser.name;
     $displayName.readOnly = true;
     $displayMail.value = currentUser.email;
-    $displayMail.readOnly = true;
-    $connectLink.style.display = "none";
-    $inscLink.style.display = "none";
+    $displayMail.readOnly = true;    
     document.getElementById("size-choice").value = currentUser.sizeChoice;
     document.getElementById("memory-choice").value = currentUser.memoryChoice;
+    $memoryPicture.src = $memoryChoice.value;
 } else {
     $logout.style.display = "none";
 };
 
-// Gestion de la deconnexion
-$logout.addEventListener("click", function(event) {
-    event.preventDefault();
-    localStorage.removeItem('currentUser');
-    window.location.href = "connection.html";
-});
-
 // Choix du memory, affichage de l'image correspondante
-const $memoryPicture = document.getElementById("memory-pic");
-const $memoryChoice = document.getElementById("memory-choice");
 $memoryChoice.addEventListener("change", function(event) {
     $memoryPicture.src = this.value;
 });
-$memoryPicture.src = $memoryChoice.value;
 
 // Récupération des données User pour enregistrement des choix
 const usersData = JSON.parse(localStorage.getItem('users'));

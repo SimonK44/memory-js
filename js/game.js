@@ -1,3 +1,10 @@
+import { saveGame } from "./storage.js";
+import { disconnect } from "./disconnect.js";
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const $logout = document.getElementById("logout-link");
+const game = {};
+const KEY_LS_GAMES = "games";
 const $cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
@@ -6,6 +13,13 @@ let firstCard;
 let secondCard;
 let count = 0;
 let winCount = 0;
+
+// Si utilisateur connecté, gestion de déconnexion
+if (currentUser) {    
+    disconnect($logout);
+}else {
+    $logout.style.display = "none"
+};
 
 // Clique des cartes
 function flipCard() {
@@ -47,6 +61,18 @@ function checkForMatch () {
             setTimeout (() => {
                 alert(`Bravo, vous avez gagné en ${count} coups !`);
             }, 1500);
+            // Si utilisateur connecté, j'enregistre le nombre de coups et la date dans le LS
+            if (currentUser) {                
+                let date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth() + 1;
+                let year = date.getFullYear();
+                let formattedDate = day + '/' + month + '/' + year;                
+                game.date = formattedDate;
+                game.count = count;
+                game.name = currentUser.name;                
+                saveGame(KEY_LS_GAMES, game);
+            }
         }
         return;        
     }
@@ -98,9 +124,8 @@ document.addEventListener('keydown', function(event) {
         flippedCards.forEach(card => {
             card.classList.remove('flip');        
         });
-        console.log(hasFlippedCard,lockBoard,firstCard,secondCard,count,winCount);
     }
 });
 
-// Ecoute de chaque clique sur les cartes avec flipCard en callback
+// Ecoute de chaque clique sur les cartes avec fonction flipCard en callback
 $cards.forEach(card => card.addEventListener('click', flipCard));

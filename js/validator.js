@@ -6,8 +6,6 @@ const user = {};
 const errors = [];
 const KEY_LS_USERS = "users";
 
-// getUsers(KEY_LS_USERS);
-
 // Récupération de l'input password pour évaluation
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('password');
@@ -70,8 +68,14 @@ $contactForm.addEventListener("submit", (event) => {
     if (errors.length > 0) {        
         errors.map((error) => {        
             const $errorField = document.getElementById(`erreur-${error[0]}`);
-            $errorField.innerHTML = error[1];
+            $errorField.innerHTML = error[1];            
         });
+        // Animation CSS en cas d'erreur
+        document.body.classList.add('shake');
+        // Arrêt de l'animation
+        setTimeout(function() {
+            document.body.classList.remove('shake');
+        }, 500);
     } else {        
         // Sinon enregistrement de l'objet user dans le LS
         saveUser(KEY_LS_USERS, user);
