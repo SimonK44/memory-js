@@ -1,6 +1,6 @@
 body {
     background: linear-gradient(to bottom right,#00467f,#a5cc82) no-repeat;
-    height: 1200px;
+    height: 1500px;
 }
 
 h1 {
@@ -153,8 +153,8 @@ div.introJeu {
 
 .memory-game {  
     border-radius: 4%;
-    width: 50%;
-    height: 55%;
+    width: 45%;
+    height: 45%;
     padding: 2%;
     margin-top: 2%;
     margin-left: auto;
@@ -240,3 +240,35 @@ div.introJeu {
     .shake {
     animation: shake 0.5s;
     }
+
+#game-table caption {
+    color: whitesmoke;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+#game-table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#game-table td, #game-table th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#game-table th {
+    background-color: black;
+    font-weight: bold;
+}
+
+#game-table tbody tr td[colspan="5"] {
+    text-align: center;
+    font-style: italic;
+}
+

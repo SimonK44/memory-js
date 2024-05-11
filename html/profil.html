@@ -22,7 +22,6 @@
     </nav>
     
     <form action="" id="formProfil">
-        <img src="../ressources/question.svg" alt="Point d'interrogation">
         <h2>Profil</h2>
 
         <label for="name-profil">Nom d'utilisateur</label>
@@ -49,7 +48,21 @@
             
         <div class="btnForm">
             <button type="submit" class="btn-profil">Enregistrer options</button>
-        </div>        
+        </div>   
+        
+        <table id="game-table">
+            <caption>Derniers scores</caption>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Score</th>
+                    <th>Taille</th>
+                    <th>Memory</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="game-table-body"></tbody>
+        </table>
         
     </form> 
 

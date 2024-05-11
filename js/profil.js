@@ -1,4 +1,5 @@
 import { disconnect } from "./disconnect.js";
+import { displayCurrentUserGames } from "./gameTable.js";
 
 const $displayName = document.getElementById("name-profil");
 const $displayMail = document.getElementById("mail-profil");
@@ -6,6 +7,9 @@ const $memoryPicture = document.getElementById("memory-pic");
 const $memoryChoice = document.getElementById("memory-choice");
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 const $logout = document.getElementById("logout-link");
+
+// Appel de la fonction pour afficher les derniers scores de l'utilisateur
+window.addEventListener("DOMContentLoaded", displayCurrentUserGames);
 
 $memoryPicture.src = $memoryChoice.value;
 
@@ -40,7 +44,7 @@ $formProfil.addEventListener("submit", function(event) {
     const $selectedMemory = document.getElementById("memory-choice").value;
 
     // Enregistrement dans le local storage et affichage sur la page profil
-    if(usersData) {
+    if(usersData && currentUser) {
         usersData.forEach((user) => {
             if(currentUser.email === user.email) {              
             currentUser.sizeChoice = $selectedSize;

@@ -1,11 +1,15 @@
 import { saveGame } from "./storage.js";
 import { disconnect } from "./disconnect.js";
+import { displayUserGames } from "./gameTable.js";
 
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 const $logout = document.getElementById("logout-link");
 const game = {};
 const KEY_LS_GAMES = "games";
 const $cards = document.querySelectorAll('.memory-card');
+
+// Appel de la fonction pour afficher les meilleurs scores
+window.addEventListener("DOMContentLoaded", displayUserGames);
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -117,14 +121,15 @@ function resetBoard () {
 document.addEventListener('keydown', function(event) {
     if (event.code === 'Space') {
         [count, winCount] = [-1, 0];
-
-        resetBoard();        
+        
+        resetBoard();      
 
         const flippedCards = document.querySelectorAll('.flip');
         flippedCards.forEach(card => {
-            card.classList.remove('flip');        
-        });
-    }
+            card.classList.remove('flip'); 
+            card.addEventListener('click', flipCard);       
+        });     
+    };
 });
 
 // Ecoute de chaque clique sur les cartes avec fonction flipCard en callback
